@@ -7,7 +7,7 @@ class Solution:
         visited = [[False for _ in range(cols)] for _ in range(rows)]
 
         def dfs(r, c):
-            # Check for invalid indices or if it's water ('W') or already visited
+            
             if (
                 r < 0
                 or c < 0
@@ -18,28 +18,28 @@ class Solution:
             ):
                 return
 
-            visited[r][c] = True  # Mark this landmass as visited
+            visited[r][c] = True  
 
-            # Explore the four directions (up, down, left, right)
-            dfs(r + 1, c)  # Down
-            dfs(r - 1, c)  # Up
-            dfs(r, c + 1)  # Right
-            dfs(r, c - 1)  # Left
+            
+            dfs(r + 1, c)  
+            dfs(r - 1, c)  
+            dfs(r, c + 1)  
+            dfs(r, c - 1)  
 
         island_count = 0
 
-        # Iterate over each cell in the grid
+        
         for r in range(rows):
             for c in range(cols):
-                # If we find unvisited land ('L'), it's a new island
+               
                 if grid[r][c] == "L" and not visited[r][c]:
                     dfs(r, c)
-                    island_count += 1  # Increment the island count
+                    island_count += 1  
 
         return island_count
 
 
-# Example usage:
+
 solution = Solution()
 
 grid1 = [
@@ -56,5 +56,5 @@ grid2 = [
     ["W", "W", "W", "L", "L"],
 ]
 
-print(solution.getTotalIsles(grid1))  # Output: 1
-print(solution.getTotalIsles(grid2))  # Output: 3
+print(solution.getTotalIsles(grid1)) 
+print(solution.getTotalIsles(grid2))  
